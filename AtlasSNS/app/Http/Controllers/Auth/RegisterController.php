@@ -48,11 +48,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'username.required' => '名前は必ず入力して下さい。',
+        ];
         $validator = Validator::make($data, [
             'username' => 'required|string|max:255',
             'mail' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:4|confirmed',
-        ]);
+        ],$messages);
         if($validator->fails()){
             return redirect('/register')->withErrors($validator)->withInput();
         }
