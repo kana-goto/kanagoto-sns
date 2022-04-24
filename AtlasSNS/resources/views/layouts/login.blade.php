@@ -18,20 +18,24 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/logo.png"></a></h1>
+        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="">
-                <div id="">
-                    <p><?php $user = Auth::user(); ?>{{ $user->username }}さん<img src="images/arrow.png"></p>
+                <div class="menu-trigger">
+                    <p><?php $user = Auth::user(); ?>{{ $user->username }}  さん<i class="fa fa-angle-down"></i><img src="images/icon1.png"></p>
                 <div>
-                <ul>
+                <div class="nav-wrapper">
+                  <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
-                </ul>
+                  </ul>
+                </div>
             </div>
         </div>
     </header>
