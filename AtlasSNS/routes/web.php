@@ -30,10 +30,9 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
-<<<<<<< HEAD
-=======
+
 Route::group(['middleware' => 'auth'], function() {
->>>>>>> main3
+
 
 Route::get('/top','PostsController@index');
 
