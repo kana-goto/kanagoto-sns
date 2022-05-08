@@ -53,9 +53,6 @@ class RegisterController extends Controller
             'mail' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:4|confirmed',
         ]);
-        if($validator->fails()){
-            return redirect('/register')->withErrors($validator)->withInput();
-        }
     }
 
     /**
@@ -81,10 +78,14 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
-
+            $this->validator($data);
+            if($data->fails()){
+            return redirect('/register')->withErrors($data)->withInput();
+            }
             $this->create($data);
             return redirect('added');
         }
+
         return view('auth.register');
     }
 
